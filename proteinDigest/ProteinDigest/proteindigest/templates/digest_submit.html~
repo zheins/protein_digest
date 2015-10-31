@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<xi:include href="master.html" />
+<style>
+
+</style>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
+    <title>Digest: ${enzyme}</title>
+
+
+</head>
+<body>
+
+<P>
+<!--<div align="left"><font size="+2">Input</font></div>-->
+<div align="right"><a href="${tg.url('/digest_submit',peptide=di.peptide,enzyme=enzyme,misses=di.misses,minlen=di.minlen,maxlen=di.maxlen,minweight=di.minweight,maxweight=di.maxweight,tg_format='xml')}">Download XML</a></div>
+
+<br/>
+<table id="resultTable">
+<tr><th>Peptide Input</th><td><span>${di.peptide}</span></td></tr>
+<tr><th>Input Length</th><td>${len(di.peptide)}</td></tr>
+<tr><th>Enzyme</th><td>${enzyme}</td></tr>
+<tr py:if="di.misses != 0"><th>Max Missed Cleaves</th><td>${di.misses}</td></tr>
+<tr py:if="di.minlen != 0"><th>Min Length</th><td>${di.minlen}</td></tr>
+<tr py:if="di.maxlen != 1000000000"><th>Max Length</th><td>${di.maxlen}</td></tr>
+<tr py:if="di.minweight != 0"><th>Min Molecular Weight</th><td>${di.minweight} Dalton</td></tr>
+<tr py:if="di.maxweight != 1000000000"><th>Max Molecular Weight</th><td>${di.maxweight} Dalton</td></tr>
+</table>
+<br/>
+<br/>
+<br/>
+<div align="left" py:if="len(di.sites)>0"><font size="+2">All Potential Cleave Sites</font></div>
+
+<table id="resultTable">
+<tr py:if="len(di.sites) > 0"><th>Cleave Sites</th><td>${len(di.sites)}</td></tr>
+<tr py:if="len(di.sites) > 0"><th>Positions</th><td>${fs}</td></tr>
+
+</table>
+<br/>
+<div margin="50px" py:if="len(di.sites)>0">
+<pre py:for="line in lines"><font>${line}</font><br/></pre></div>
+<br/>
+<br/>
+<br/>
+
+<div align="left" py:if="len(peps) > 0"><font size="+2">Peptides Meeting Criteria</font></div>
+
+<div align="center" py:if="len(peps) == 0"><font size="+2">No Cleave Sites Meeting Criteria</font></div>
+
+<table id="digestTable">
+<tr py:if="len(peps) > 0"><th>Peptide</th><th>Length</th><th>Molecular Weight</th><th>Missed Cleaves</th><th>Amino Acid Left</th><th>Amino Acid Right</th></tr>
+	<tr py:for="pep in reversed(sorted(peps,key=lambda x: x[2]))">
+		<td>${pep[0]}</td>
+		<td>${pep[1]}</td>
+		<td>${pep[2]}</td>
+		<td>${pep[3]}</td>
+		<td py:if="len(pep[4])>0">${pep[4][-1]}</td>
+		<td py:if="len(pep[4])==0"></td>
+		<td py:if="len(pep[5])>0">${pep[5][0]}</td>
+		<td py:if="len(pep[5])==0"></td>
+	</tr>
+
+</table>
+</P>
+
+</body>
+</html>

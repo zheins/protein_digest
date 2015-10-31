@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<result xmlns:py="http://genshi.edgewall.org/">
+	<input>
+		<peptide>${di.peptide}</peptide>
+		<length>${len(di.peptide)}</length>
+		<maxmiss>${di.misses}</maxmiss>
+		<minlen>${di.minlen}</minlen>
+		<maxlen>${di.maxlen}</maxlen>
+		<minweight>${di.minweight}</minweight>
+		<maxweight>${di.maxweight}</maxweight>
+		<enzyme>${enzyme}</enzyme>
+	</input>
+	<potentialCleaveSites>
+		<numcleavesites>${len(di.sites)}</numcleavesites>
+		<positions>${fs}</positions>
+	</potentialCleaveSites>
+	<peptidesMeetingCriteria>
+		<pep py:for="pep in peps">
+			<pep>${pep[0]}</pep>
+			<len>${pep[1]}</len>
+			<mw>${pep[2]}</mw>
+			<missedcleaves>${pep[3]}</missedcleaves>
+			<aal py:if="len(pep[4])>0">${pep[4][-1]}</aal>
+			<aar py:if="len(pep[5])>0">${pep[5][0]}</aar>
+		</pep>
+	</peptidesMeetingCriteria>
+	
+</result>
+

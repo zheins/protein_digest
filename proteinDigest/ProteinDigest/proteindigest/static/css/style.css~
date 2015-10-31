@@ -1,0 +1,116 @@
+html {
+	background: #154072;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+
+table {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", Sans-Serif;font-size:12px;
+	background:#fff;
+	width:480px;
+	text-align:left;margin:20px;
+	border-collapse:collapse;
+	table-layout:fixed;
+	width:1000px;
+}
+th{
+	font-size:14px;
+	font-weight:normal;
+	color:#039;
+	padding:10px 8px;
+}
+td{
+	width:800px; 
+	word-wrap:break-word;
+	color:#669;
+padding:9px 8px 0;
+}
+
+
+
+
+#digestTable{
+	font-family:"Lucida Sans Unicode", "Lucida Grande", Sans-Serif;font-size:12px;
+	background:#fff;
+	width:480px;
+	text-align:left;margin:20px;
+	border-collapse:collapse;
+	table-layout:fixed;
+	width:1000px;
+}
+#digestTable th{
+	font-size:14px;
+	font-weight:normal;
+	color:#039;
+	border-bottom:2px solid #6678b1;
+	padding:10px 8px;
+}
+#digestTable td{
+	width:800px; 
+	word-wrap:break-word;
+	color:#669;
+padding:9px 8px 0;
+}
+#digestTable tbody tr:hover td{color:#0C2441;}
+
+#digestTable tr:nth-child(even) {background: #F0F6FC}
+/*#digestTable tr:nth-child(odd) {background: #F0F6FC}*/
+
+font {
+	color:#154072
+	
+}
+
+pre {
+	font-size:12px;
+	color:#154072;
+}
+
+body {
+	text-align: left;
+	width: 1300px;
+	margin: 0 auto;
+	padding: 0;
+	font-size: 12px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", Sans-Serif;font-size:12px;
+}
+
+a {
+	color: #286571;
+}
+
+
+
+
+
+#content {
+	background: #fff url('../images/contentbg.png') left bottom no-repeat;
+	margin : 0 10px 10px 10px;
+	padding: 0 10px;
+	overflow: hidden;
+}
+
+#content .currentpage {
+	margin-top: 0;
+}
+
+
+/* Other and footer */
+
+#footer {
+	background: #fff;
+	padding: 10px;
+	color:#888888;
+	
+}
+
+.code {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", Sans-Serif;font-size:12px;
+}
+.fielderror {
+	color: red;
+	font-weight: bold;
+}
+
