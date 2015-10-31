@@ -1,2 +1,2 @@
 # protein_digest
-Final proejct for bioinformatics comuting class at GU
+Final project for bioinformatics computing class at GU. Web application which predicts potential cleavage sites by various proteases given a sequence or uniprot accessio, similar to the ExPASy PeptideCutter tool.
